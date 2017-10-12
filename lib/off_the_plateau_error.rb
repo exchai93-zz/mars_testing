@@ -1,0 +1,2 @@
+class OffThePlateauError < StandardError
+end

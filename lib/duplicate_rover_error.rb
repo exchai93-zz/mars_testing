@@ -1,0 +1,2 @@
+class DuplicateRoverError < StandardError
+end
