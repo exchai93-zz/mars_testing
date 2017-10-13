@@ -1,11 +1,10 @@
 require './lib/mars_rover.rb'
 
-puts "Please enter a file name, or 'input.txt'"
+puts "Please enter the file name 'test_input.txt'"
 file = gets.chomp.strip
 mars_rover = MarsRover.new(file)
 
-puts "Moving the Rovers..."
+puts "Let's go. Moving the Rovers..."
 mars_rover.parse_input
 mars_rover.move_rovers
-
-puts mars_rover.output
+mars_rover.print_output

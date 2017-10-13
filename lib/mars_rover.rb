@@ -18,14 +18,13 @@ class MarsRover
   end
 
   def move_rovers
-    # land_rovers
     @plateau.rovers.each do |rover|
       rover.make_a_move
     end
   end
 
-  def output
-    @plateau.rovers.each { |r| r.to_s }
+  def print_output
+    @plateau.rovers.each { |rover| puts rover.to_position_format }
   end
 
   private
