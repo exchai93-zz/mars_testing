@@ -37,22 +37,22 @@ describe 'MarsRover' do
           expect(mars.plateau.rovers.length).to eq(2)
         end
         it 'has the correct x position' do
-          expect(mars.plateau.rovers.first.x).to eq('1')
+          expect(mars.plateau.rovers.first.x).to eq(1)
         end
         it 'has the correct y position' do
-          expect(mars.plateau.rovers.first.y).to eq('2')
+          expect(mars.plateau.rovers.first.y).to eq(2)
         end
       end
     end
 
-    xdescribe '#move_rovers' do
+    describe '#move_rovers' do
       before(:each) do
         mars.move_rovers
       end
       it 'moves the rovers to the correct position' do
-        expect(mars.rovers.first.x).to eq(1)
-        # expect(mars.rovers.first.y).to eq(3)
-        # expect(mars.rovers.first.direction.facing_direction).to eq('N')
+        expect(mars.plateau.rovers.first.x).to eq(1)
+        expect(mars.plateau.rovers.first.y).to eq(3)
+        expect(mars.plateau.rovers.first.direction.facing_direction).to eq('N')
       end
     end
   end

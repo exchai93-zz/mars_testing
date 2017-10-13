@@ -2,7 +2,8 @@ require 'rover'
 
 describe 'Rover' do
 
-  subject(:rover) { Rover.new(1, 2, 'N', 'LMLMLMLMM')}
+  subject(:rover) { Rover.new(1, 2, 'N', 'LMLMLMLMM') }
+  let(:other_rover) { Rover.new(3, 3, 'E', 'MMRMMRMRRM') }
 
   describe '#initialize' do
     context 'position' do
@@ -20,7 +21,7 @@ describe 'Rover' do
     end
     context 'instructions' do
       it 'has a series of instructions' do
-        expect(rover.instructions).to eq 'LMLMLMLMM'
+        expect(rover.instructions.rover_moves).to eq ["L", "M", "L", "M", "L", "M", "L", "M", "M"]
       end
     end
   end
@@ -31,13 +32,21 @@ describe 'Rover' do
         rover.make_a_move
       end
       it 'changes the rovers direction' do
-        expect(rover.direction.facing_direction).to eq 'W'
+        expect(rover.direction.facing_direction).to eq 'N'
       end
       it 'moves the rover to the end x position' do
         expect(rover.x).to eq(1)
       end
       it 'moves the rover to the end y position' do
-        expect(rover.y).to eq(2)
+        expect(rover.y).to eq(3)
+      end
+      context 'with another valid instruction input' do
+        before(:each) do
+          other_rover.make_a_move
+        end
+        it 'does not change the rovers direction' do
+          expect(other_rover.direction.facing_direction).to eq 'E'
+        end
       end
     end
 
